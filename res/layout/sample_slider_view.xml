@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/testView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="273dp"
+        android:layout_centerInParent="true"
+        android:background="#999999" >
+
+        <cn.jarlen.android.view.sliderview.SliderView
+            android:id="@+id/sliderView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            custom:auto_cycle="true"
+            custom:indicator_visibility="visible"
+            custom:pager_animation="Default"
+            custom:pager_animation_span="1100" />
+    </RelativeLayout>
+
+</RelativeLayout>
