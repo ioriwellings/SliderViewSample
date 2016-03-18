@@ -20,7 +20,15 @@ public class SliderAdapter extends PagerAdapter implements OnClickListener {
 	private OnSliderViewClickListener listener = null;
 
 	public SliderAdapter(Context context) {
+		this(context, null);
+	}
+
+	public SliderAdapter(Context context, List<BaseSliderView> list) {
 		mContext = context;
+		if (list != null) {
+			this.mImageContents.addAll(list);
+		}
+
 	}
 
 	public void addSliderViews(List<BaseSliderView> list) {
@@ -42,6 +50,9 @@ public class SliderAdapter extends PagerAdapter implements OnClickListener {
 
 	@Override
 	public int getCount() {
+		if (mImageContents.isEmpty()) {
+			return 0;
+		}
 		return Integer.MAX_VALUE;
 	}
 
@@ -57,12 +68,11 @@ public class SliderAdapter extends PagerAdapter implements OnClickListener {
 	@Override
 	public void destroyItem(ViewGroup container, int position, Object object) {
 		container.removeView((View) object);
-		Log.d("===", "destroyItem " + position);
 	}
 
 	@Override
 	public Object instantiateItem(ViewGroup container, int position) {
-		Log.d("===", "instantiateItem " + position);
+		
 		position %= mImageContents.size();
 		BaseSliderView sliderView = mImageContents.get(position);
 		View view = sliderView.getView();

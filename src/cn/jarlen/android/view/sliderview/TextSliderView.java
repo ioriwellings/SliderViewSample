@@ -1,4 +1,5 @@
 package cn.jarlen.android.view.sliderview;
+
 import cn.jarlen.android.view.R;
 import android.content.Context;
 import android.view.LayoutInflater;

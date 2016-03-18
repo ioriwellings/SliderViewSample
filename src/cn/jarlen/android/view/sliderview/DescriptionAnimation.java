@@ -1,6 +1,7 @@
 package cn.jarlen.android.view.sliderview;
 
 import android.view.View;
+
 import cn.jarlen.android.view.R;
 
 import com.nineoldandroids.animation.ObjectAnimator;

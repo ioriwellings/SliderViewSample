@@ -1,6 +1,7 @@
 package cn.jarlen.android.view.sliderview;
 
 import cn.jarlen.android.view.sliderview.SliderAdapter;
+
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;

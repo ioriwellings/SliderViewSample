@@ -284,6 +284,26 @@ public class SliderView extends RelativeLayout {
 		return mSliderAdapter;
 	}
 
+	public void updateSliderAdapter(SliderAdapter sliderAdapter) {
+		this.mSliderAdapter = sliderAdapter;
+		mSliderViewPager.setAdapter(mSliderAdapter);
+		if (mIndicator != null) {
+			mIndicator.setViewPager(mSliderViewPager);
+		}
+
+		if (mSliderViewPager != null) {
+			mSliderViewPager
+					.setCurrentItem(mSliderAdapter.getRealCount() * 100);
+		}
+
+		if (mSliderAdapter.getRealCount() < 2) {
+			setIndicatorVisibility(SliderPagerIndicator.IndicatorVisibility.Invisible);
+		} else {
+			setIndicatorVisibility(SliderPagerIndicator.IndicatorVisibility.Visible);
+		}
+		startAutoCycle();
+	}
+
 	/**
 	 * 设置SliderView点击事件监听
 	 * 
@@ -323,7 +343,6 @@ public class SliderView extends RelativeLayout {
 			setIndicatorVisibility(SliderPagerIndicator.IndicatorVisibility.Visible);
 		}
 		startAutoCycle();
-
 	}
 
 	public void startAutoCycle() {

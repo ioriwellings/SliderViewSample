@@ -5,6 +5,7 @@ import java.io.File;
 import cn.jarlen.android.view.R;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
@@ -221,31 +222,31 @@ public abstract class BaseSliderView {
 		}
 
 		Glide.with(mContext).load(getUrl()).fitCenter()
-				.placeholder(R.drawable.icon_ad_default)
-				.listener(new RequestListener<String, GlideDrawable>() {
+		.placeholder(R.drawable.icon_ad_default)
+		.listener(new RequestListener<String, GlideDrawable>() {
 
-					@Override
-					public boolean onException(Exception arg0, String arg1,
-							Target<GlideDrawable> arg2, boolean arg3) {
-						// TODO Auto-generated method stub
-						if (mLoadListener != null) {
-							mLoadListener.onEnd(false, me);
-						}
-						return false;
-					}
+			@Override
+			public boolean onException(Exception arg0, String arg1,
+					Target<GlideDrawable> arg2, boolean arg3) {
+				// TODO Auto-generated method stub
+				if (mLoadListener != null) {
+					mLoadListener.onEnd(false, me);
+				}
+				return false;
+			}
 
-					@Override
-					public boolean onResourceReady(GlideDrawable arg0,
-							String arg1, Target<GlideDrawable> arg2,
-							boolean arg3, boolean arg4) {
+			@Override
+			public boolean onResourceReady(GlideDrawable arg0,
+					String arg1, Target<GlideDrawable> arg2,
+					boolean arg3, boolean arg4) {
 
-						if (mLoadListener != null) {
-							mLoadListener.onEnd(true, me);
-						}
-						return false;
-					}
+				if (mLoadListener != null) {
+					mLoadListener.onEnd(true, me);
+				}
+				return false;
+			}
 
-				}).error(R.drawable.icon_ad_default).into(targetImageView);
+		}).error(R.drawable.icon_ad_default).into(targetImageView);
 	}
 
 	public BaseSliderView setScaleType(ScaleType type) {

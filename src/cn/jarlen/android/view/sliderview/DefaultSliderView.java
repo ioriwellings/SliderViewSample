@@ -1,11 +1,9 @@
 package cn.jarlen.android.view.sliderview;
-
 import cn.jarlen.android.view.R;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 /**
  * a simple slider view, which just show an image. If you want to make your own
@@ -23,11 +21,7 @@ public class DefaultSliderView extends BaseSliderView {
 	public View getView() {
 		View view = LayoutInflater.from(getContext()).inflate(
 				R.layout.widget_slider_render_type_img, null);
-
 		ImageView target = (ImageView) view.findViewById(R.id.slide_item_img);
-		TextView tv = (TextView) view.findViewById(R.id.slide_item_tv);
-		String id = getId();
-		tv.setText(id);
 		bindEventAndShow(view, target);
 		return view;
 	}
